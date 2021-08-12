@@ -1,0 +1,10 @@
+@startuml
+autonumber
+user->linebot:login
+linebot->user:personal menu(RichMenu)
+user->linebot:click webcam
+linebot->webcam_server:Authentication request
+webcam_server->linebot:Authentication Response \n allow: video streaming \n deny: rejection message
+linebot->user:liff
+
+@enduml
