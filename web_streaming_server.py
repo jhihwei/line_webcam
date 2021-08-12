@@ -23,6 +23,11 @@ def index():
     return render_template("index.html")
 
 def detect_motion(frame_count):
+    """Detect and mark moving objects
+
+    Args:
+        frame_count (int): number of video frame
+    """
     global video_stream, output_frame, lock
     motion_detector = MotionDetector(accum_weight=0.1)
     total = 0
@@ -49,6 +54,11 @@ def detect_motion(frame_count):
 
 
 def generate():
+    """ translate frames to image (byte)
+
+    Yields:
+        byte: Content-Type is image/jpeg
+    """
     global output_frame, lock
     while True:
         with lock:
