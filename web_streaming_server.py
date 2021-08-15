@@ -50,6 +50,7 @@ def callback():
 
 @app.route("/")
 def index():
+    print(request)
     # get parameters from a URL
     code = request.args.get('code')
     if get_user_id(code) == user_list.users['test']:
@@ -59,6 +60,14 @@ def index():
 
 
 def get_user_id(code):
+    """[summary]
+
+    Args:
+        code (string): the response code from line auth
+
+    Returns:
+        string : user id
+    """
     data_as_dict = {'Content-Type': 'application/x-www-form-urlencoded',
                     'grant_type': 'authorization_code',
                     'code': code,
@@ -127,6 +136,11 @@ def generate():
 
 @app.route("/video_feed")
 def video_feed():
+    """[summary]
+
+    Returns:
+        byte: the image frame
+    """
     return Response(generate(), mimetype="multipart/x-mixed-replace; boundary=frame")
 
 
