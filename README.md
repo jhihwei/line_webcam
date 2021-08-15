@@ -15,4 +15,4 @@ A Iot application that combining linebot and webcam
 <img src="content/webcam.jpg">
 
 ## Issue
-In mobile app, user have to talk first with linebot for server get request and user id
+In mobile app, user have to talk with linebot first for server get request and user id
